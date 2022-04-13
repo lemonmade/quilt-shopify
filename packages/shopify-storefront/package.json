@@ -1,5 +1,5 @@
 {
-  "name": "@quilted/shopify-storefront",
+  "name": "quilt-shopify-storefront",
   "description": "A framework for building a Shopify storefront on top of Quilt",
   "type": "module",
   "version": "0.0.0",

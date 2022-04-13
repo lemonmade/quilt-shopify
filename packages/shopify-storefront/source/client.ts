@@ -1,4 +1,4 @@
-import {createGraphQL, createHttpFetch} from '@quilted/quilt';
+import {createGraphQL, createGraphQLHttpFetch} from '@quilted/quilt';
 
 import type {ApiVersion} from './types';
 
@@ -25,7 +25,7 @@ export function createStorefrontGraphQLFetch({
     shop ? shopToOrigin(shop) : ''
   }/api/${apiVersion}/graphql.json`;
 
-  return createHttpFetch({
+  return createGraphQLHttpFetch({
     uri,
     headers: {
       [HEADER_STOREFRONT_ACCESS_TOKEN]: accessToken,
