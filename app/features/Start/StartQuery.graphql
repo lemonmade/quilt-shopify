@@ -1,0 +1,20 @@
+query Products {
+  collections(first: 10) {
+    edges {
+      node {
+        id
+        title
+        handle
+      }
+    }
+  }
+  products(first: 10) {
+    edges {
+      node {
+        id
+        title
+        handle
+      }
+    }
+  }
+}
