@@ -1,9 +1,6 @@
 import {NotFound} from '@quilted/quilt/http';
 import {useGraphQLQuery} from '@quilted/react-query';
-import {
-  ProductSeo,
-  graphqlNodesFromConnection,
-} from '@quilted/shopify-storefront';
+import {ProductSeo, graphqlNodesFromConnection} from 'quilt-shopify-storefront';
 
 import productDetailsQuery from './ProductDetailsQuery.graphql';
 

@@ -1,6 +1,6 @@
 import {Link} from '@quilted/quilt';
 import {useGraphQLQuery} from '@quilted/react-query';
-import {graphqlNodesFromConnection} from '@quilted/shopify-storefront';
+import {graphqlNodesFromConnection} from 'quilt-shopify-storefront';
 
 import startQuery from './StartQuery.graphql';
 import styles from './Start.module.css';

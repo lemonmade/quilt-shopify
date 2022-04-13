@@ -4,7 +4,7 @@ import {App as QuiltApp, useMatch, Link} from '@quilted/quilt';
 import type {PropsWithChildren} from '@quilted/quilt';
 import {ReactQueryContext} from '@quilted/react-query';
 import {QueryClient} from 'react-query';
-import {StorefrontContext} from '@quilted/shopify-storefront';
+import {StorefrontContext} from 'quilt-shopify-storefront';
 
 import {Head} from './foundation/Head';
 import {Http} from './foundation/Http';

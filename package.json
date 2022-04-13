@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@quilted/browserslist-config": "^0.1.6",
-    "@quilted/craft": "^0.1.98",
+    "@quilted/craft": "^0.1.100",
     "@quilted/eslint-config": "^0.1.9",
     "@quilted/prettier": "^0.2.8",
     "@quilted/typescript": "^0.2.11",
