@@ -1,6 +1,7 @@
 import {NotFound} from '@quilted/quilt/http';
 import {useGraphQLQuery} from '@quilted/swr';
 import {ProductSeo, graphqlNodesFromConnection} from 'quilt-shopify-storefront';
+import {ShopTitle} from '~/shared/title';
 
 import productDetailsQuery from './ProductDetailsQuery.graphql';
 
@@ -44,6 +45,7 @@ export function ProductDetails({handle}: Props) {
         vendor={product.vendor}
         variants={graphqlNodesFromConnection(product.variants)}
       />
+      <ShopTitle>{product.title}</ShopTitle>
       <div>Product {handle}!</div>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </>

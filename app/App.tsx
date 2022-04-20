@@ -5,6 +5,7 @@ import type {PropsWithChildren} from '@quilted/quilt';
 import {SWRContext} from '@quilted/swr';
 import {StorefrontContext} from 'quilt-shopify-storefront';
 
+import {AppContext} from './foundation/AppContext';
 import {Head} from './foundation/Head';
 import {Http} from './foundation/Http';
 import {Routes} from './foundation/Routes';
@@ -20,11 +21,13 @@ export default function App() {
           apiVersion="2022-01"
           accessToken="1a5b27351394e40d9e3be25900b7d1f2"
         >
-          <Http />
-          <Head />
-          <Frame>
-            <Routes />
-          </Frame>
+          <AppContext>
+            <Http />
+            <Head />
+            <Frame>
+              <Routes />
+            </Frame>
+          </AppContext>
         </StorefrontContext>
       </SWRContext>
     </QuiltApp>

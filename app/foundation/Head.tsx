@@ -1,12 +1,18 @@
 import {Title, Viewport, Favicon} from '@quilted/quilt/html';
 
+import {useShop} from '~/shared/shop';
+
 export function Head() {
+  const shop = useShop({required: false});
+
+  if (shop == null) return null;
+
   return (
     <>
       {/**
        * Sets the default `<title>` for this application.
        */}
-      <Title>Shop</Title>
+      <Title>{shop.name}</Title>
 
       {/**
        * Sets the default favicon used by the application. You can
