@@ -1,9 +1,8 @@
-import {useMemo} from 'react';
+// import {useMemo} from 'react';
 
 import {App as QuiltApp, useMatch, Link} from '@quilted/quilt';
 import type {PropsWithChildren} from '@quilted/quilt';
-import {ReactQueryContext} from '@quilted/react-query';
-import {QueryClient} from 'react-query';
+import {SWRContext} from '@quilted/swr';
 import {StorefrontContext} from 'quilt-shopify-storefront';
 
 import {Head} from './foundation/Head';
@@ -13,11 +12,9 @@ import {Routes} from './foundation/Routes';
 import './App.css';
 
 export default function App() {
-  const queryClient = useMemo(() => new QueryClient(), []);
-
   return (
     <QuiltApp>
-      <ReactQueryContext client={queryClient}>
+      <SWRContext>
         <StorefrontContext
           shop="admin4"
           apiVersion="2022-01"
@@ -29,7 +26,7 @@ export default function App() {
             <Routes />
           </Frame>
         </StorefrontContext>
-      </ReactQueryContext>
+      </SWRContext>
     </QuiltApp>
   );
 }

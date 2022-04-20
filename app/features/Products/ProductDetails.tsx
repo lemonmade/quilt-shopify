@@ -1,5 +1,5 @@
 import {NotFound} from '@quilted/quilt/http';
-import {useGraphQLQuery} from '@quilted/react-query';
+import {useGraphQLQuery} from '@quilted/swr';
 import {ProductSeo, graphqlNodesFromConnection} from 'quilt-shopify-storefront';
 
 import productDetailsQuery from './ProductDetailsQuery.graphql';
@@ -13,10 +13,10 @@ export function ProductDetails({handle}: Props) {
     variables: {handle},
   });
 
-  const {data, isSuccess} = queryResult;
+  const {data} = queryResult;
   const product = data?.product;
 
-  if (isSuccess && data?.product == null) {
+  if (data != null && product == null) {
     return (
       <>
         <div>

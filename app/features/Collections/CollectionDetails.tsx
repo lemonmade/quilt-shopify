@@ -1,5 +1,5 @@
 import {NotFound} from '@quilted/quilt/http';
-import {useGraphQLQuery} from '@quilted/react-query';
+import {useGraphQLQuery} from '@quilted/swr';
 
 import collectionDetailsQuery from './CollectionDetailsQuery.graphql';
 
@@ -8,11 +8,11 @@ export interface Props {
 }
 
 export function CollectionDetails({handle}: Props) {
-  const {isSuccess, data} = useGraphQLQuery(collectionDetailsQuery, {
+  const {data} = useGraphQLQuery(collectionDetailsQuery, {
     variables: {handle},
   });
 
-  if (isSuccess && data?.collection == null) {
+  if (data != null && data.collection == null) {
     return (
       <>
         <div>

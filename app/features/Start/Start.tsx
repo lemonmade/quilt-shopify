@@ -1,14 +1,12 @@
 import {Link} from '@quilted/quilt';
-import {useGraphQLQuery} from '@quilted/react-query';
+import {useGraphQLQuery} from '@quilted/swr';
 import {graphqlNodesFromConnection} from 'quilt-shopify-storefront';
 
 import startQuery from './StartQuery.graphql';
 import styles from './Start.module.css';
 
 export function Start() {
-  const {data, error, isLoading} = useGraphQLQuery(startQuery, {
-    // meta: {server: false},
-  });
+  const {data, error, isLoading} = useGraphQLQuery(startQuery);
 
   const products = graphqlNodesFromConnection(data?.products);
   const collections = graphqlNodesFromConnection(data?.collections);
