@@ -19,7 +19,7 @@ export function Start() {
           <ul>
             {products.map((product) => (
               <li key={product.id}>
-                <Link to={`/products/${product.handle}`}>{product.title}</Link>
+                <Link to={`products/${product.handle}`}>{product.title}</Link>
               </li>
             ))}
           </ul>
@@ -31,7 +31,7 @@ export function Start() {
           <ul>
             {collections.map((collections) => (
               <li key={collections.id}>
-                <Link to={`/collections/${collections.handle}`}>
+                <Link to={`collections/${collections.handle}`}>
                   {collections.title}
                 </Link>
               </li>

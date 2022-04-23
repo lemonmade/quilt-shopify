@@ -19,9 +19,7 @@ export function StorefrontGraphQLApi({
 
   return (
     <StorefrontGraphQLContext.Provider value={graphql}>
-      <GraphQLContext.Provider value={graphql}>
-        {children}
-      </GraphQLContext.Provider>
+      <GraphQLContext client={graphql}>{children}</GraphQLContext>
     </StorefrontGraphQLContext.Provider>
   );
 }

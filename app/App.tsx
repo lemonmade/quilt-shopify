@@ -1,9 +1,16 @@
 // import {useMemo} from 'react';
 
-import {App as QuiltApp, useMatch, Link} from '@quilted/quilt';
+import {
+  AppContext as QuiltContext,
+  useMatch,
+  Link,
+  LocalizedRouter,
+} from '@quilted/quilt';
 import type {PropsWithChildren} from '@quilted/quilt';
 import {SWRContext} from '@quilted/swr';
 import {StorefrontContext} from 'quilt-shopify-storefront';
+
+import {routerLocalization} from '~/shared/localization';
 
 import {AppContext} from './foundation/AppContext';
 import {Head} from './foundation/Head';
@@ -14,23 +21,25 @@ import './App.css';
 
 export default function App() {
   return (
-    <QuiltApp>
-      <SWRContext>
-        <StorefrontContext
-          shop="admin4"
-          apiVersion="2022-01"
-          accessToken="1a5b27351394e40d9e3be25900b7d1f2"
-        >
-          <AppContext>
-            <Http />
-            <Head />
-            <Frame>
-              <Routes />
-            </Frame>
-          </AppContext>
-        </StorefrontContext>
-      </SWRContext>
-    </QuiltApp>
+    <QuiltContext>
+      <LocalizedRouter localization={routerLocalization}>
+        <SWRContext>
+          <StorefrontContext
+            shop="admin4"
+            apiVersion="2022-01"
+            accessToken="1a5b27351394e40d9e3be25900b7d1f2"
+          >
+            <AppContext>
+              <Http />
+              <Head />
+              <Frame>
+                <Routes />
+              </Frame>
+            </AppContext>
+          </StorefrontContext>
+        </SWRContext>
+      </LocalizedRouter>
+    </QuiltContext>
   );
 }
 
@@ -45,6 +54,9 @@ function Frame({children}: PropsWithChildren) {
           <Link to="/">Home</Link>
         </div>
       )}
+      <div>
+        <Link to="/locale">Locale</Link>
+      </div>
       <div>{children}</div>
     </div>
   );
